@@ -1,23 +1,76 @@
 const tests = [
-  ["🩸", "CBC Test", "Complete Blood Count ki basic jankari"],
-  ["🔴", "Hemoglobin", "Hb level aur general reference information"],
-  ["🧪", "ESR Test", "ESR test aur result ko samjhein"],
-  ["🍬", "Blood Sugar", "Fasting, PP aur random glucose"],
-  ["📊", "HbA1c", "Pichhle 2–3 mahine ki average glucose information"],
-  ["🫀", "Lipid Profile", "Cholesterol aur triglycerides"],
-  ["🧬", "LFT", "Liver Function Test guide"],
-  ["💧", "KFT", "Kidney Function Test guide"],
-  ["🦋", "Thyroid Profile", "TSH, T3 aur T4 information"],
-  ["🧫", "CRP", "C-Reactive Protein test information"],
-  ["⚗️", "Uric Acid", "Uric acid test guide"],
-  ["🩹", "PT / INR", "Blood clotting test information"],
-];
-
-const calculators = [
-  ["⚖️", "BMI Calculator", "Height aur weight se BMI calculate karein"],
-  ["🫘", "eGFR Calculator", "Kidney filtration estimate"],
-  ["❤️", "LDL Calculator", "Calculated LDL cholesterol"],
-  ["🧪", "Corrected Calcium", "Albumin ke according corrected calcium"],
+  {
+    icon: "🩸",
+    name: "CBC Test",
+    full: "Complete Blood Count",
+    description:
+      "Hemoglobin, WBC, Platelets, RBC aur blood cells ki basic jaanch.",
+    range: "Hb: Male 13–17 g/dL | Female 12–15 g/dL",
+  },
+  {
+    icon: "🔬",
+    name: "ESR",
+    full: "Erythrocyte Sedimentation Rate",
+    description:
+      "Body mein inflammation ka assessment karne mein madad karne wala test.",
+    range: "Reference range age, sex aur laboratory ke hisab se vary karti hai.",
+  },
+  {
+    icon: "🧪",
+    name: "LFT",
+    full: "Liver Function Test",
+    description:
+      "Bilirubin, AST, ALT, ALP aur proteins ke through liver ko assess kiya jata hai.",
+    range: "Reference ranges laboratory ke according vary karti hain.",
+  },
+  {
+    icon: "💧",
+    name: "KFT",
+    full: "Kidney Function Test",
+    description:
+      "Creatinine, urea aur related parameters kidney function assess karne mein help karte hain.",
+    range: "Creatinine reference range lab, age aur sex ke hisab se vary karti hai.",
+  },
+  {
+    icon: "🍬",
+    name: "Blood Sugar",
+    full: "Glucose Test",
+    description:
+      "Blood glucose measurement diabetes screening aur monitoring mein use hota hai.",
+    range: "Interpretation fasting/random status aur clinical context par depend karti hai.",
+  },
+  {
+    icon: "📊",
+    name: "HbA1c",
+    full: "Glycated Hemoglobin",
+    description:
+      "Pichhle lagbhag 2–3 mahine ke average blood glucose ka indicator.",
+    range: "Result ko diabetes guidelines aur clinical context ke saath interpret kiya jata hai.",
+  },
+  {
+    icon: "🦋",
+    name: "Thyroid Profile",
+    full: "TSH, T3 & T4",
+    description:
+      "Thyroid gland ki functioning assess karne ke liye commonly kiye jane wale tests.",
+    range: "TSH/T3/T4 reference intervals laboratory aur method ke hisab se vary karte hain.",
+  },
+  {
+    icon: "❤️",
+    name: "Lipid Profile",
+    full: "Cholesterol Test",
+    description:
+      "Total cholesterol, LDL, HDL aur triglycerides cardiovascular risk assessment mein help karte hain.",
+    range: "Targets patient ke overall cardiovascular risk par depend kar sakte hain.",
+  },
+  {
+    icon: "🧫",
+    name: "Urine R/M",
+    full: "Urine Routine & Microscopy",
+    description:
+      "Urine ke physical, chemical aur microscopic parameters ki jaanch.",
+    range: "Interpretation measured parameter aur laboratory method par depend karti hai.",
+  },
 ];
 
 export default function Home() {
@@ -51,12 +104,11 @@ export default function Home() {
         </h1>
 
         <p>
-          Blood tests, pathology reports, reference values aur health
-          information ko aasaan Hindi/Hinglish mein samjhein.
+          Blood tests, pathology reports aur health information ko
+          simple Hindi/Hinglish mein samjhein.
         </p>
 
         <div className="search">
-          🔍
           <input
             type="search"
             placeholder="Search CBC, ESR, LFT, KFT, Thyroid..."
@@ -65,8 +117,7 @@ export default function Home() {
         </div>
 
         <div className="quick">
-          Popular: CBC &nbsp; • &nbsp; ESR &nbsp; • &nbsp; HbA1c &nbsp; •
-          &nbsp; Thyroid &nbsp; • &nbsp; LFT
+          Popular: CBC • ESR • HbA1c • Thyroid • LFT • KFT
         </div>
       </section>
 
@@ -76,135 +127,114 @@ export default function Home() {
             <span className="eyebrow">PATHOLOGY GUIDE</span>
             <h2>Popular Blood Tests</h2>
           </div>
-          <p>Common laboratory tests ki educational information.</p>
+          <p>
+            Common laboratory tests ki educational information.
+          </p>
         </div>
 
         <div className="grid">
-          {tests.map(([icon, title, text]) => (
-            <article className="card" key={title}>
-              <div className="icon">{icon}</div>
-              <h3>{title}</h3>
-              <p>{text}</p>
-                <span className="learn">Jankari dekhein →</span>
+          {tests.map((test) => (
+            <article className="card" key={test.name}>
+              <div className="icon">{test.icon}</div>
+              <h3>{test.name}</h3>
+              <strong className="full">{test.full}</strong>
+              <p>{test.description}</p>
+              <div className="range">{test.range}</div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="values" id="values">
-        <div className="valuesInner">
-          <div>
-            <span className="eyebrow light">LAB REFERENCE GUIDE</span>
-            <h2>Normal / Reference Values</h2>
-            <p>
-              CBC, LFT, KFT, Lipid Profile, Thyroid, Glucose, Electrolytes
-              aur coagulation tests ke reference intervals ko samjhein.
-            </p>
-            <button className="whiteButton">
-              Reference Values dekhein
-            </button>
-          </div>
+      <section className="info" id="values">
+        <span className="eyebrow">REFERENCE VALUES</span>
+        <h2>Lab reports ko samajhna</h2>
 
-          <div className="report">
-            <div className="reportHead">
-              <strong>Sample Reference</strong>
-              <span>Educational</span>
-            </div>
+        <p>
+          Laboratory reference ranges testing method, laboratory,
+          age, sex, pregnancy aur clinical situation ke according
+          alag ho sakti hain. Apni report par printed reference
+          interval ko priority dein.
+        </p>
 
-            <div className="row">
-              <span>Hemoglobin</span>
-              <strong>Lab specific</strong>
-            </div>
-
-            <div className="row">
-              <span>WBC</span>
-              <strong>Lab specific</strong>
-            </div>
-
-            <div className="row">
-              <span>Platelets</span>
-              <strong>Lab specific</strong>
-            </div>
-
-            <div className="note">
-              Reference intervals laboratory, method, age, sex aur clinical
-              situation ke according vary kar sakte hain.
-            </div>
-          </div>
+        <div className="notice">
+          ⚠️ Sirf ek abnormal value ke basis par khud diagnosis na karein.
+          Report ko symptoms, medical history aur doctor ki assessment
+          ke saath interpret kiya jana chahiye.
         </div>
       </section>
 
       <section className="section" id="calculators">
-        <div className="sectionTitle">
-          <div>
-            <span className="eyebrow">USEFUL TOOLS</span>
-            <h2>Health & Lab Calculators</h2>
-          </div>
-          <p>Educational calculation tools.</p>
-        </div>
+        <span className="eyebrow">HEALTH TOOLS</span>
+        <h2>Health Calculators</h2>
 
-        <div className="calcGrid">
-          {calculators.map(([icon, title, text]) => (
-            <article className="calc" key={title}>
-              <div className="calcIcon">{icon}</div>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </article>
-          ))}
+        <div className="miniGrid">
+          <div className="tool">
+            <span>⚖️</span>
+            <h3>BMI Calculator</h3>
+            <p>Height aur weight ke basis par BMI calculate karein.</p>
+          </div>
+
+          <div className="tool">
+            <span>🫘</span>
+            <h3>eGFR Guide</h3>
+            <p>Kidney function aur eGFR ke baare mein samjhein.</p>
+          </div>
+
+          <div className="tool">
+            <span>❤️</span>
+            <h3>Health Reference</h3>
+            <p>Common laboratory parameters ki educational guide.</p>
+          </div>
         </div>
       </section>
 
       <section className="articles" id="articles">
-        <span className="eyebrow">HEALTH EDUCATION</span>
-        <h2>Report samajhne ke liye useful health information</h2>
+        <span className="eyebrow">LEARN HEALTH</span>
+        <h2>Health Articles</h2>
 
-        <p>
-          Diabetes, thyroid, kidney health, liver health, anemia aur
-          laboratory testing par simple educational articles.
-        </p>
+        <div className="articleBox">
+          <h3>CBC report kaise samjhein?</h3>
+          <p>
+            Hemoglobin, WBC, RBC aur platelet count ke basic meaning
+            ko simple language mein samjhein.
+          </p>
+        </div>
 
-        <div className="articleTags">
-          <span>Blood Tests</span>
-          <span>Diabetes</span>
-          <span>Thyroid</span>
-          <span>Kidney Health</span>
-          <span>Liver Health</span>
-          <span>Anemia</span>
+        <div className="articleBox">
+          <h3>LFT test kyun kiya jata hai?</h3>
+          <p>
+            Liver function tests mein commonly measured parameters
+            aur unki general role ko samjhein.
+          </p>
+        </div>
+
+        <div className="articleBox">
+          <h3>Thyroid profile kya hai?</h3>
+          <p>
+            TSH, T3 aur T4 tests thyroid function assessment mein
+            kaise use hote hain, uski basic jankari.
+          </p>
         </div>
       </section>
 
       <section className="disclaimer">
-        <strong>⚕️ Medical Disclaimer</strong>
-
+        <h2>Medical Disclaimer</h2>
         <p>
-          NIDAN HEALTH & PATHOLOGY GUIDE par di gayi information sirf
-          educational purpose ke liye hai. Yeh medical diagnosis,
-          prescription ya emergency medical care ka substitute nahi hai.
-          Laboratory report ki interpretation aur treatment ke liye
-          qualified healthcare professional se salah lein.
+          NIDAN Health & Pathology Guide par di gayi information
+          educational purpose ke liye hai. Yeh doctor ki consultation,
+          diagnosis ya treatment ka replacement nahi hai. Kisi bhi
+          medical decision ke liye qualified healthcare professional
+          se salah lein.
         </p>
       </section>
 
       <footer>
-        <div className="footerGrid">
-          <div>
-            <h3>NIDAN HEALTH & PATHOLOGY GUIDE</h3>
-            <p>Health & Pathology Education in Simple Hindi</p>
-          </div>
-
-          <div className="footerLinks">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Medical Disclaimer</a>
-          </div>
+        <div>
+          <strong>NIDAN</strong>
+          <p>Health & Pathology Guide</p>
         </div>
 
-        <div className="copyright">
-          © 2026 NIDAN HEALTH & PATHOLOGY GUIDE. All rights reserved.
-        </div>
+        <p>© 2026 NIDAN. Educational health information.</p>
       </footer>
     </main>
   );
