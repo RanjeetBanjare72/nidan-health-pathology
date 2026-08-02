@@ -85,3 +85,127 @@ export default function Home() {
               <div className="icon">{icon}</div>
               <h3>{title}</h3>
               <p>{text}</p>
+                <span className="learn">Jankari dekhein →</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="values" id="values">
+        <div className="valuesInner">
+          <div>
+            <span className="eyebrow light">LAB REFERENCE GUIDE</span>
+            <h2>Normal / Reference Values</h2>
+            <p>
+              CBC, LFT, KFT, Lipid Profile, Thyroid, Glucose, Electrolytes
+              aur coagulation tests ke reference intervals ko samjhein.
+            </p>
+            <button className="whiteButton">
+              Reference Values dekhein
+            </button>
+          </div>
+
+          <div className="report">
+            <div className="reportHead">
+              <strong>Sample Reference</strong>
+              <span>Educational</span>
+            </div>
+
+            <div className="row">
+              <span>Hemoglobin</span>
+              <strong>Lab specific</strong>
+            </div>
+
+            <div className="row">
+              <span>WBC</span>
+              <strong>Lab specific</strong>
+            </div>
+
+            <div className="row">
+              <span>Platelets</span>
+              <strong>Lab specific</strong>
+            </div>
+
+            <div className="note">
+              Reference intervals laboratory, method, age, sex aur clinical
+              situation ke according vary kar sakte hain.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="calculators">
+        <div className="sectionTitle">
+          <div>
+            <span className="eyebrow">USEFUL TOOLS</span>
+            <h2>Health & Lab Calculators</h2>
+          </div>
+          <p>Educational calculation tools.</p>
+        </div>
+
+        <div className="calcGrid">
+          {calculators.map(([icon, title, text]) => (
+            <article className="calc" key={title}>
+              <div className="calcIcon">{icon}</div>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="articles" id="articles">
+        <span className="eyebrow">HEALTH EDUCATION</span>
+        <h2>Report samajhne ke liye useful health information</h2>
+
+        <p>
+          Diabetes, thyroid, kidney health, liver health, anemia aur
+          laboratory testing par simple educational articles.
+        </p>
+
+        <div className="articleTags">
+          <span>Blood Tests</span>
+          <span>Diabetes</span>
+          <span>Thyroid</span>
+          <span>Kidney Health</span>
+          <span>Liver Health</span>
+          <span>Anemia</span>
+        </div>
+      </section>
+
+      <section className="disclaimer">
+        <strong>⚕️ Medical Disclaimer</strong>
+
+        <p>
+          NIDAN HEALTH & PATHOLOGY GUIDE par di gayi information sirf
+          educational purpose ke liye hai. Yeh medical diagnosis,
+          prescription ya emergency medical care ka substitute nahi hai.
+          Laboratory report ki interpretation aur treatment ke liye
+          qualified healthcare professional se salah lein.
+        </p>
+      </section>
+
+      <footer>
+        <div className="footerGrid">
+          <div>
+            <h3>NIDAN HEALTH & PATHOLOGY GUIDE</h3>
+            <p>Health & Pathology Education in Simple Hindi</p>
+          </div>
+
+          <div className="footerLinks">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Medical Disclaimer</a>
+          </div>
+        </div>
+
+        <div className="copyright">
+          © 2026 NIDAN HEALTH & PATHOLOGY GUIDE. All rights reserved.
+        </div>
+      </footer>
+    </main>
+  );
+}
