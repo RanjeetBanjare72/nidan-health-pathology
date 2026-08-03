@@ -784,3 +784,131 @@ footer {
     font-size: 11px;
   }
 }
+/* ===== BMI CALCULATOR ===== */
+
+.bmiCalculator {
+  background: #ffffff;
+  border: 1px solid #dce4e8;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.bmiCalculator > span {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.bmiCalculator h3 {
+  font-size: 26px;
+  margin: 0 0 12px;
+  color: #172033;
+}
+
+.bmiCalculator > p {
+  color: #667085;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.bmiInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.bmiInputs div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bmiInputs label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #172033;
+}
+
+.bmiInputs input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 15px;
+  border: 1px solid #d5dde2;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 16px;
+  outline: none;
+}
+
+.bmiInputs input:focus {
+  border-color: #118c95;
+  box-shadow: 0 0 0 3px rgba(17, 140, 149, 0.12);
+}
+
+.bmiCalculator button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  background: #118c95;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bmiCalculator button:active {
+  transform: scale(0.99);
+}
+
+.bmiResult {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #eafafa;
+  border: 1px solid #c7eeee;
+  text-align: center;
+}
+
+.bmiResult strong {
+  display: block;
+  color: #087f87;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.bmiResult p {
+  margin: 0;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .bmiCalculator {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .bmiInputs {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bmiCalculator h3 {
+    font-size: 24px;
+  }
+
+  .bmiInputs input {
+    min-height: 52px;
+    font-size: 16px;
+  }
+
+  .bmiCalculator button {
+    min-height: 52px;
+  }
+}
