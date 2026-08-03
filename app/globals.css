@@ -1079,3 +1079,155 @@ footer {
     min-height: 58px;
   }
 }
+/* ===== BLOOD PRESSURE CHECKER ===== */
+
+.bpCalculator {
+  background: #ffffff;
+  border: 1px solid #dce3e6;
+  border-radius: 22px;
+  padding: 28px 24px;
+  margin-top: 28px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+}
+
+.bpCalculator > span {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.bpCalculator h3 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #17213a;
+  margin-bottom: 18px;
+}
+
+.bpCalculator > p {
+  color: #697386;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.bpInputs {
+  display: grid;
+  gap: 20px;
+}
+
+.bpInputs div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bpInputs label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #17213a;
+}
+
+.bpInputs input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 17px;
+  min-height: 60px;
+  border: 1px solid #d5dcdf;
+  border-radius: 14px;
+  font-size: 17px;
+  outline: none;
+}
+
+.bpInputs input:focus {
+  border-color: #15939a;
+  box-shadow: 0 0 0 3px rgba(21,147,154,0.12);
+}
+
+.bpCalculator > button {
+  width: 100%;
+  min-height: 58px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 14px;
+  background: #15939a;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bpCalculator > button:active {
+  transform: scale(0.98);
+}
+
+.bpResult {
+  margin-top: 24px;
+  padding: 24px 18px;
+  text-align: center;
+  background: #eefafa;
+  border: 1px solid #ccebec;
+  border-radius: 16px;
+}
+
+.bpResult > span {
+  display: block;
+  color: #697386;
+  font-size: 16px;
+}
+
+.bpResult > strong {
+  display: block;
+  margin-top: 8px;
+  color: #15939a;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.bpResult small {
+  color: #697386;
+  font-size: 14px;
+}
+
+.bpResult h4 {
+  margin: 20px 0 12px;
+  color: #17213a;
+  font-size: 20px;
+}
+
+.bpNote {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #445064;
+}
+
+.bpDisclaimer {
+  border-top: 1px solid #cce3e4;
+  margin-top: 18px;
+  padding-top: 16px;
+  text-align: left;
+  color: #697386;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.bpError {
+  margin-top: 18px;
+  padding: 14px;
+  background: #fff3f3;
+  color: #b42318;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .bpCalculator {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .bpCalculator h3 {
+    font-size: 26px;
+  }
+}
