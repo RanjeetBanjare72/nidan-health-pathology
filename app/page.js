@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 const tests = [
   {
     icon: "🩸",
@@ -74,6 +77,26 @@ const tests = [
 ];
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+
+  const filteredTests = tests.filter((test) => {
+    const query = search.toLowerCase().trim();
+
+    return (
+      test.name.toLowerCase().includes(query) ||
+      test.full.toLowerCase().includes(query) ||
+      test.description.toLowerCase().includes(query)
+    );
+  });
+
+  const handleSearch = () => {
+    if (!search.trim()) return;
+
+    document
+      .getElementById("tests")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main>
       <header className="header">
@@ -109,12 +132,19 @@ export default function Home() {
         </p>
 
         <div className="search">
-          <input
-            type="search"
-            placeholder="Search CBC, ESR, LFT, KFT, Thyroid..."
-          />
-          <button>Search</button>
-        </div>
+  <input
+    type="search"
+    placeholder="Search CBC, ESR, LFT, KFT, Thyroid..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") handleSearch();
+    }}
+  />
+  <button type="button" onClick={handleSearch}>
+    Search
+  </button>
+</div>
 
         <div className="quick">
           Popular: CBC • ESR • HbA1c • Thyroid • LFT • KFT
@@ -133,7 +163,7 @@ export default function Home() {
         </div>
 
         <div className="grid">
-          {tests.map((test) => (
+          {filteredTests.map((test) => (
             <article className="card" key={test.name}>
               <div className="icon">{test.icon}</div>
               <h3>{test.name}</h3>
