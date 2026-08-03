@@ -222,7 +222,7 @@ const getBMICategory = (value) => {
       <section className="section" id="calculators">
         <span className="eyebrow">HEALTH TOOLS</span>
         <h2>Health Calculators</h2>
-
+      <div className="miniGrid">
         <div className="tool bmiCalculator">
   <span>⚖️</span>
   <h3>BMI Calculator</h3>
