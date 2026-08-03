@@ -470,3 +470,276 @@ footer {
     margin: 40px 16px;
   }
 }
+/* ========================================
+   NIDAN - MOBILE UI VERSION 2
+   Paste below existing CSS
+======================================== */
+
+@media (max-width: 600px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav {
+    padding: 10px 16px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    font-size: 17px;
+  }
+
+  .brand strong {
+    font-size: 16px;
+  }
+
+  .brand span {
+    font-size: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 55px 18px 50px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 6px 11px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.08;
+    margin: 18px auto 14px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero h1 span {
+    display: block;
+  }
+
+  .hero > p {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 5px;
+  }
+
+  /* SEARCH BOX */
+  .search {
+    width: 100%;
+    margin: 28px auto 12px;
+    padding: 7px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+  }
+
+  .search input {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+
+  .search button {
+    padding: 12px 16px;
+    border-radius: 9px;
+    white-space: nowrap;
+  }
+
+  .quick {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 50px 16px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 24px;
+  }
+
+  .sectionTitle h2,
+  .articles h2,
+  .values h2 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .sectionTitle p {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  /* BLOOD TEST CARDS */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .card .icon {
+    font-size: 25px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+    margin: 10px 0 5px;
+  }
+
+  .card p,
+  .calc p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .learn {
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  /* NORMAL VALUES */
+  .values {
+    padding: 50px 16px;
+  }
+
+  .valuesInner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .report {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .reportHead,
+  .row {
+    gap: 8px;
+  }
+
+  .reportHead {
+    font-size: 11px;
+  }
+
+  .row {
+    font-size: 12px;
+  }
+
+  /* CALCULATORS */
+  .calcGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .calc {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .calcIcon {
+    font-size: 27px;
+  }
+
+  .calc h3 {
+    font-size: 17px;
+  }
+
+  /* ARTICLES */
+  .articles {
+    padding: 50px 16px;
+  }
+
+  .articles > p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .articleTags {
+    gap: 8px;
+  }
+
+  .articleTags span {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    margin: 30px 16px;
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .disclaimer strong {
+    font-size: 14px;
+  }
+
+  .disclaimer p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 35px 16px 18px;
+  }
+
+  .footerGrid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footerLinks {
+    gap: 12px;
+  }
+
+  .copyright {
+    margin-top: 25px;
+    padding-top: 18px;
+    font-size: 11px;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .search button {
+    padding: 11px 12px;
+    font-size: 12px;
+  }
+
+  .sectionTitle h2,
+  .articles h2,
+  .values h2 {
+    font-size: 25px;
+  }
+}
