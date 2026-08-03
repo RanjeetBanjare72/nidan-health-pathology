@@ -81,7 +81,57 @@ export default function Home() {
 const [height, setHeight] = useState("");
 const [weight, setWeight] = useState("");
 const [bmi, setBmi] = useState(null);
+const [egfrAge, setEgfrAge] = useState("");
+const [egfrSex, setEgfrSex] = useState("male");
+const [creatinine, setCreatinine] = useState("");
+const [egfr, setEgfr] = useState(null);
+const [egfrError, setEgfrError] = useState("");
 
+const calculateEGFR = () => {
+  const age = parseFloat(egfrAge);
+  const scr = parseFloat(creatinine);
+
+  if (!age || !scr || age < 18 || scr <= 0) {
+    setEgfr(null);
+    setEgfrError(
+      age && age < 18
+        ? "Yeh calculator sirf 18+ years adults ke liye hai."
+        : "Please valid age aur serum creatinine enter karein."
+    );
+    return;
+  }
+
+  const female = egfrSex === "female";
+  const kappa = female ? 0.7 : 0.9;
+  const alpha = female ? -0.241 : -0.302;
+
+  const ratio = scr / kappa;
+
+  let result =
+    142 *
+    Math.pow(Math.min(ratio, 1), alpha) *
+    Math.pow(Math.max(ratio, 1), -1.2) *
+    Math.pow(0.9938, age);
+
+  if (female) {
+    result *= 1.012;
+  }
+
+  setEgfr(Math.round(result));
+  setEgfrError("");
+};
+
+const getEGFRCategory = (value) => {
+  const n = Number(value);
+
+  if (n >= 90) return "G1 — Normal or high";
+  if (n >= 60) return "G2 — Mildly decreased";
+  if (n >= 45) return "G3a — Mildly to moderately decreased";
+  if (n >= 30) return "G3b — Moderately to severely decreased";
+  if (n >= 15) return "G4 — Severely decreased";
+
+  return "G5 — Kidney failure range";
+};
 const calculateBMI = () => {
   const h = parseFloat(height);
   const w = parseFloat(weight);
@@ -262,11 +312,90 @@ const getBMICategory = (value) => {
   )}
 </div>
 
-          <div className="tool">
-            <span>🫘</span>
-            <h3>eGFR Guide</h3>
-            <p>Kidney function aur eGFR ke baare mein samjhein.</p>
-          </div>
+        <div className="tool egfrCalculator">
+  <span>🫘</span>
+
+  <h3>eGFR Calculator</h3>
+
+  <p>
+    2021 CKD-EPI Creatinine Equation se estimated kidney
+    filtration rate calculate karein.
+  </p>
+
+  <div className="egfrInputs">
+
+    <div>
+      <label>Age (years)</label>
+      <input
+        type="number"
+        placeholder="Example: 45"
+        value={egfrAge}
+        onChange={(e) => setEgfrAge(e.target.value)}
+      />
+    </div>
+
+    <div>
+      <label>Sex</label>
+
+      <select
+        value={egfrSex}
+        onChange={(e) => setEgfrSex(e.target.value)}
+      >
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Serum Creatinine (mg/dL)</label>
+
+      <input
+        type="number"
+        step="0.01"
+        placeholder="Example: 1.0"
+        value={creatinine}
+        onChange={(e) => setCreatinine(e.target.value)}
+      />
+    </div>
+
+  </div>
+
+  <button type="button" onClick={calculateEGFR}>
+    Calculate eGFR
+  </button>
+
+  {egfrError && (
+    <div className="egfrError">
+      {egfrError}
+    </div>
+  )}
+
+  {egfr !== null && (
+    <div className="egfrResult">
+
+      <span>Estimated eGFR</span>
+
+      <strong>
+        {egfr}
+      </strong>
+
+      <small>
+        mL/min/1.73 m²
+      </small>
+
+      <p>
+        {getEGFRCategory(egfr)}
+      </p>
+
+      <div className="egfrNote">
+        eGFR ek estimate hai. G1/G2 value akeli CKD diagnosis
+        establish nahi karti. Clinical findings, urine albumin
+        aur repeat testing bhi important ho sakte hain.
+      </div>
+
+    </div>
+  )}
+</div>
 
           <div className="tool">
             <span>❤️</span>
