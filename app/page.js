@@ -87,6 +87,10 @@ const [creatinine, setCreatinine] = useState("");
 const [egfr, setEgfr] = useState(null);
 const [egfrError, setEgfrError] = useState("");
 
+  const [systolic, setSystolic] = useState("");
+const [diastolic, setDiastolic] = useState("");
+const [bpResult, setBpResult] = useState(null);
+const [bpError, setBpError] = useState("");
 const calculateEGFR = () => {
   const age = parseFloat(egfrAge);
   const scr = parseFloat(creatinine);
@@ -98,6 +102,55 @@ const calculateEGFR = () => {
         ? "Yeh calculator sirf 18+ years adults ke liye hai."
         : "Please valid age aur serum creatinine enter karein."
     );
+    const calculateBP = () => {
+  const sys = Number(systolic);
+  const dia = Number(diastolic);
+
+  if (!systolic || !diastolic || sys <= 0 || dia <= 0) {
+    setBpError("Please valid Systolic aur Diastolic BP enter karein.");
+    setBpResult(null);
+    return;
+  }
+
+  if (sys < 50 || sys > 300 || dia < 30 || dia > 200) {
+    setBpError("BP value expected range ke bahar hai. Value dobara check karein.");
+    setBpResult(null);
+    return;
+  }
+
+  let category = "";
+  let message = "";
+
+  if (sys > 180 || dia > 120) {
+    category = "Severely High Blood Pressure";
+    message =
+      "Reading bahut high hai. Dobara BP check karein. Agar chest pain, saans lene mein dikkat, weakness, vision ya speech problem jaise symptoms hain to emergency medical care lein.";
+  } else if (sys >= 140 || dia >= 90) {
+    category = "High Blood Pressure — Stage 2";
+    message =
+      "BP high range mein hai. Healthcare professional se assessment karana uchit hai.";
+  } else if (sys >= 130 || dia >= 80) {
+    category = "High Blood Pressure — Stage 1";
+    message =
+      "BP high range mein hai. Repeat readings aur clinical assessment important hain.";
+  } else if (sys >= 120 && dia < 80) {
+    category = "Elevated Blood Pressure";
+    message =
+      "Systolic BP elevated range mein hai. Regular monitoring aur healthy lifestyle useful hai.";
+  } else if (sys < 120 && dia < 80) {
+    category = "Normal Blood Pressure";
+    message =
+      "Reading normal range mein hai.";
+  }
+
+  setBpError("");
+  setBpResult({
+    systolic: sys,
+    diastolic: dia,
+    category,
+    message,
+  });
+};
     return;
   }
 
@@ -392,6 +445,76 @@ const getBMICategory = (value) => {
         establish nahi karti. Clinical findings, urine albumin
         aur repeat testing bhi important ho sakte hain.
       </div>
+          <div className="bpCalculator">
+  <span>❤️</span>
+
+  <h3>Blood Pressure Checker</h3>
+
+  <p>
+    Apna Systolic aur Diastolic blood pressure enter karke
+    BP category check karein.
+  </p>
+
+  <div className="bpInputs">
+    <div>
+      <label>Systolic BP (mmHg)</label>
+      <input
+        type="number"
+        inputMode="numeric"
+        placeholder="Example: 120"
+        value={systolic}
+        onChange={(e) => setSystolic(e.target.value)}
+      />
+    </div>
+
+    <div>
+      <label>Diastolic BP (mmHg)</label>
+      <input
+        type="number"
+        inputMode="numeric"
+        placeholder="Example: 80"
+        value={diastolic}
+        onChange={(e) => setDiastolic(e.target.value)}
+      />
+    </div>
+  </div>
+
+  <button type="button" onClick={calculateBP}>
+    Check Blood Pressure
+  </button>
+
+  {bpError && (
+    <div className="bpError">
+      ⚠️ {bpError}
+    </div>
+  )}
+
+  {bpResult && (
+    <div className="bpResult">
+
+      <span>Your Blood Pressure</span>
+
+      <strong>
+        {bpResult.systolic}/{bpResult.diastolic}
+      </strong>
+
+      <small>mmHg</small>
+
+      <h4>{bpResult.category}</h4>
+
+      <div className="bpNote">
+        {bpResult.message}
+      </div>
+
+      <div className="bpDisclaimer">
+        Ek single BP reading se hypertension diagnose nahi hota.
+        Diagnosis ke liye repeat measurements aur healthcare
+        professional ka assessment zaroori ho sakta hai.
+      </div>
+
+    </div>
+  )}
+</div>
 
     </div>
   )}
