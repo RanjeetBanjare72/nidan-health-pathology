@@ -78,7 +78,33 @@ const tests = [
 
 export default function Home() {
   const [search, setSearch] = useState("");
+const [height, setHeight] = useState("");
+const [weight, setWeight] = useState("");
+const [bmi, setBmi] = useState(null);
 
+const calculateBMI = () => {
+  const h = parseFloat(height);
+  const w = parseFloat(weight);
+
+  if (!h || !w || h <= 0 || w <= 0) {
+    setBmi(null);
+    return;
+  }
+
+  const heightInMeter = h / 100;
+  const result = w / (heightInMeter * heightInMeter);
+
+  setBmi(result.toFixed(1));
+};
+
+const getBMICategory = (value) => {
+  const number = parseFloat(value);
+
+  if (number < 18.5) return "Underweight";
+  if (number < 25) return "Normal Weight";
+  if (number < 30) return "Overweight";
+  return "Obesity";
+};
   const filteredTests = tests.filter((test) => {
     const query = search.toLowerCase().trim();
 
@@ -197,12 +223,44 @@ export default function Home() {
         <span className="eyebrow">HEALTH TOOLS</span>
         <h2>Health Calculators</h2>
 
-        <div className="miniGrid">
-          <div className="tool">
-            <span>⚖️</span>
-            <h3>BMI Calculator</h3>
-            <p>Height aur weight ke basis par BMI calculate karein.</p>
-          </div>
+        <div className="tool bmiCalculator">
+  <span>⚖️</span>
+  <h3>BMI Calculator</h3>
+  <p>Apni height aur weight enter karke BMI calculate karein.</p>
+
+  <div className="bmiInputs">
+    <div>
+      <label>Height (cm)</label>
+      <input
+        type="number"
+        placeholder="Example: 170"
+        value={height}
+        onChange={(e) => setHeight(e.target.value)}
+      />
+    </div>
+
+    <div>
+      <label>Weight (kg)</label>
+      <input
+        type="number"
+        placeholder="Example: 65"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+      />
+    </div>
+  </div>
+
+  <button type="button" onClick={calculateBMI}>
+    Calculate BMI
+  </button>
+
+  {bmi && (
+    <div className="bmiResult">
+      <strong>Your BMI: {bmi}</strong>
+      <p>Category: {getBMICategory(bmi)}</p>
+    </div>
+  )}
+</div>
 
           <div className="tool">
             <span>🫘</span>
