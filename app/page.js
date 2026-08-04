@@ -448,7 +448,9 @@ const getBMICategory = (value) => {
 
 </div>
 )}
-
+</div>
+</div>
+)}
 <div className="bpCalculator">
           
           <div className="bpCalculator">
@@ -518,9 +520,6 @@ const getBMICategory = (value) => {
         professional ka assessment zaroori ho sakta hai.
       </div>
 
-    </div>
-  )}
-</div>
 
           <div className="tool">
             <span>❤️</span>
