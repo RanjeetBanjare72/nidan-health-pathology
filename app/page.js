@@ -511,16 +511,17 @@ const getBMICategory = (value) => {
       </div>
 
       <div className="bpDisclaimer">
-        Ek single BP reading se hypertension diagnose nahi hota.
-        Diagnosis ke liye repeat measurements aur healthcare
-        professional ka assessment zaroori ho sakta hai.
-          </div>
-          </div>
+  Ek single BP reading se hypertension diagnose nahi hota.
+  Diagnosis ke liye repeat measurements aur healthcare
+  professional ka assessment zaroori ho sakta hai.
+</div>
+
+</div>
 )}
 
 </div>
 
-          <div className="tool">
+            <div className="tool">
             <span>❤️</span>
             <h3>Health Reference</h3>
             <p>Common laboratory parameters ki educational guide.</p>
