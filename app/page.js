@@ -516,8 +516,6 @@ const getBMICategory = (value) => {
         Diagnosis ke liye repeat measurements aur healthcare
         professional ka assessment zaroori ho sakta hai.
           </div>
-  )}
-</div>
 
 
           <div className="tool">
