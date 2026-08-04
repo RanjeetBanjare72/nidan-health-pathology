@@ -441,12 +441,15 @@ const getBMICategory = (value) => {
       </p>
 
       <div className="egfrNote">
-        eGFR ek estimate hai. G1/G2 value akeli CKD diagnosis
-        establish nahi karti. Clinical findings, urine albumin
-        aur repeat testing bhi important ho sakte hain.
-            </div>
-  )}
+  eGFR ek estimate hai. G1/G2 value akeli CKD diagnosis
+  establish nahi karti. Clinical findings, urine albumin
+  aur repeat testing bhi important ho sakte hain.
 </div>
+
+</div>
+)}
+
+<div className="bpCalculator">
           
           <div className="bpCalculator">
   <span>❤️</span>
