@@ -444,13 +444,10 @@ const getBMICategory = (value) => {
   eGFR ek estimate hai. G1/G2 value akeli CKD diagnosis
   establish nahi karti. Clinical findings, urine albumin
   aur repeat testing bhi important ho sakte hain.
+    </div>
+  )}
 </div>
 
-</div>
-)}
-</div>
-</div>
-)}
 <div className="bpCalculator">
           
           <div className="bpCalculator">
@@ -518,7 +515,9 @@ const getBMICategory = (value) => {
         Ek single BP reading se hypertension diagnose nahi hota.
         Diagnosis ke liye repeat measurements aur healthcare
         professional ka assessment zaroori ho sakta hai.
-      </div>
+          </div>
+  )}
+</div>
 
 
           <div className="tool">
