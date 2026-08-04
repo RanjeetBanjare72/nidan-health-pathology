@@ -450,7 +450,6 @@ const getBMICategory = (value) => {
 
 <div className="bpCalculator">
           
-          <div className="bpCalculator">
   <span>❤️</span>
 
   <h3>Blood Pressure Checker</h3>
@@ -516,7 +515,10 @@ const getBMICategory = (value) => {
         Diagnosis ke liye repeat measurements aur healthcare
         professional ka assessment zaroori ho sakta hai.
           </div>
+          </div>
+)}
 
+</div>
 
           <div className="tool">
             <span>❤️</span>
