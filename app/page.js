@@ -521,6 +521,8 @@ const getBMICategory = (value) => {
 
 </div>
 
+<div className="tool">
+
             <div className="tool">
             <span>❤️</span>
             <h3>Health Reference</h3>
