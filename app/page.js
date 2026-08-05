@@ -519,8 +519,6 @@ const getBMICategory = (value) => {
 </div>
 )}
 
-</div>
-  
       </section>
 
       <section className="articles" id="articles">
