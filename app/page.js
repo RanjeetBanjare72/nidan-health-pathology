@@ -360,9 +360,11 @@ const getBMICategory = (value) => {
   {bmi && (
     <div className="bmiResult">
       <strong>Your BMI: {bmi}</strong>
-      <p>Category: {getBMICategory(bmi)}</p>
+      <p>Category: {getBMICategory(bmi)} 
+  </p>
     </div>
   )}
+
 </div>
 
         <div className="tool egfrCalculator">
