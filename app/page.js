@@ -516,12 +516,13 @@ const getBMICategory = (value) => {
   professional ka assessment zaroori ho sakta hai.
 </div>
 
-</div>
-)}
+        </div>
+      )}
 
-      </section>
+      </div>
+    </section>
 
-      <section className="articles" id="articles">
+    <section className="articles" id="articles">
         <span className="eyebrow">LEARN HEALTH</span>
         <h2>Health Articles</h2>
 
