@@ -444,9 +444,9 @@ const getBMICategory = (value) => {
   eGFR ek estimate hai. G1/G2 value akeli CKD diagnosis
   establish nahi karti. Clinical findings, urine albumin
   aur repeat testing bhi important ho sakte hain.
-    </div>
-  )}
 </div>
+</div>
+)}
 
 <div className="bpCalculator">
           
